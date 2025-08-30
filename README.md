@@ -1,5 +1,9 @@
 # AdaptiveBrightness
 
+Not actually 1.21.5, that's just what the respository is called
+
+Original description:
+
 This mod dynamically changes the brightness level of Minecraft based on the light level of the block you're standing on.
 For configuration editing, you'll need ModMenu.
 

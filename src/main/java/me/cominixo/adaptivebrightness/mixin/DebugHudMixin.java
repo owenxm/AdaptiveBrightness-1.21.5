@@ -1,5 +1,6 @@
 package me.cominixo.adaptivebrightness.mixin;
 
+import me.cominixo.adaptivebrightness.config.Config;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.DebugHud;
 import net.minecraft.util.math.BlockPos;
@@ -20,8 +21,12 @@ public class DebugHudMixin {
 
     @ModifyVariable(method = "getLeftText", at = @At("RETURN"), ordinal = 0)
     private List<String> addDebugString(List<String> list) {
-        list.add("");
-        list.add(String.format("[AdaptiveBrightness] Brightness: %f%%", client.options.gamma*100));
-        return list;
+        if (Config.debug_disabled || this.client.hasReducedDebugInfo()) {
+            return list;
+        } else {
+            list.add("");
+            list.add(String.format("[AdaptiveBrightness] Brightness: %f%%", client.options.getGamma().getValue() * 100));
+            return list;
+        }
     }
 }

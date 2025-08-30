@@ -6,5 +6,9 @@
   "option.adaptivebrightness.min_gamma": "Minimum Brightness",
   "option.adaptivebrightness.min_gamma.tooltip": "The minimum brightness value the mod will set",
   "option.adaptivebrightness.disabled": "Disabled",
-  "option.adaptivebrightness.disabled.tooltip": "Disables the mod and makes brightness fixed again"
+  "option.adaptivebrightness.disabled.tooltip": "Disables the mod and makes brightness fixed again",
+  "option.adaptivebrightness.debug_disabled": "Debug Screen Info Disabled",
+  "option.adaptivebrightness.debug_disabled.tooltip": "Removes the Debug Screen information",
+  "option.adaptivebrightness.print_settings": "Print Saved Settings",
+  "option.adaptivebrightness.print_settings.tooltip": "Prints settings into the log"
 }

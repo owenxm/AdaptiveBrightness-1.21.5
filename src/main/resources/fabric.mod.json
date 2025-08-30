@@ -1,11 +1,12 @@
 {
   "schemaVersion": 1,
   "id": "adaptivebrightness",
-  "version": "1.0.3",
+  "version": "1.1",
   "name": "Adaptive Brightness",
   "description": "A simple mod that changes your brightness according to the light level",
   "authors": [
-    "cominixo"
+    "cominixo",
+    "ported by: owenxm"
   ],
   "contact": {},
   "license": "LGPL-3.0",
@@ -23,7 +24,8 @@
     "adaptivebrightness.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.12.0",
-    "minecraft": "1.18.*"
+    "fabricloader": ">=0.16.0",
+    "minecraft": ">=1.19",
+    "cloth-config": ">=7.0.69"
   }
 }
