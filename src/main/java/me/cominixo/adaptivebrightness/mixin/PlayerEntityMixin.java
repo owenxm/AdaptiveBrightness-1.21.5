@@ -5,6 +5,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -33,7 +34,11 @@ public class PlayerEntityMixin {
 
         if (((LivingEntity) (Object) this).getWorld().isClient) {
             MinecraftClient client = MinecraftClient.getInstance();
-            int totalLight = client.world.getChunkManager().getLightingProvider().getLight(((Entity)(Object)this).getBlockPos(), 0);
+            int lightPosX = ((Entity)(Object)this).getBlockX();
+            int lightPosY = (int) ((Entity)(Object)this).getEyeY() - 1;
+            int lightPosZ = ((Entity)(Object)this).getBlockZ();
+            BlockPos lightPos = new BlockPos(lightPosX, lightPosY, lightPosZ);
+            int totalLight = client.world.getChunkManager().getLightingProvider().getLight(lightPos, 0);
             double gammaTarget = clamp(Math.abs(totalLight-15.0)/15.0, Config.min_gamma, Config.max_gamma);
             double gamma = client.options.getGamma().getValue();
             if (gamma < gammaTarget) {
