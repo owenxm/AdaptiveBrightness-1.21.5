@@ -15,8 +15,8 @@ public class Config {
     public static double max_gamma = 1.0f;
     public static double min_gamma = 0.0f;
     public static boolean disabled = false;
-    public static boolean debug_disabled = false;
-    public static boolean print_settings = true;
+//    public static boolean debug_disabled = false;
+//    public static boolean print_settings = true;
 
     public static Screen init(Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create()
@@ -47,17 +47,17 @@ public class Config {
                 .setSaveConsumer(newValue -> disabled = newValue)
                 .build());
 
-        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.adaptivebrightness.debug_disabled"), debug_disabled)
-                .setDefaultValue(debug_disabled)
-                .setTooltip(Text.translatable("option.adaptivebrightness.debug_disabled.tooltip"))
-                .setSaveConsumer(newValue -> debug_disabled = newValue)
-                .build());
+//        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.adaptivebrightness.debug_disabled"), debug_disabled)
+//                .setDefaultValue(debug_disabled)
+//                .setTooltip(Text.translatable("option.adaptivebrightness.debug_disabled.tooltip"))
+//                .setSaveConsumer(newValue -> debug_disabled = newValue)
+//                .build());
 
-        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.adaptivebrightness.print_settings"), print_settings)
-                .setDefaultValue(print_settings)
-                .setTooltip(Text.translatable("option.adaptivebrightness.print_settings.tooltip"))
-                .setSaveConsumer(newValue -> print_settings = newValue)
-                .build());
+//        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.adaptivebrightness.print_settings"), print_settings)
+//                .setDefaultValue(print_settings)
+//                .setTooltip(Text.translatable("option.adaptivebrightness.print_settings.tooltip"))
+//                .setSaveConsumer(newValue -> print_settings = newValue)
+//                .build());
 
         builder.setSavingRunnable(() -> {
             FileWriter fileWriter;
@@ -71,8 +71,8 @@ public class Config {
             printWriter.printf("max %f\n", max_gamma);
             printWriter.printf("min %f\n", min_gamma);
             printWriter.printf("disabled %b\n", disabled);
-            printWriter.printf("debug_disabled %b\n", debug_disabled);
-            printWriter.printf("print_settings %b\n", print_settings);
+//            printWriter.printf("debug_disabled %b\n", debug_disabled);
+//            printWriter.printf("print_settings %b\n", print_settings);
             printWriter.close();
         });
 
@@ -98,19 +98,19 @@ public class Config {
                 min_gamma = Double.parseDouble(line.split("min ")[1]);
             } else if (line.startsWith("disabled ")) {
                 disabled = Boolean.parseBoolean(line.split("disabled ")[1]);
-            } else if (line.startsWith("debug_disabled ")) {
-                debug_disabled = Boolean.parseBoolean(line.split("debug_disabled ")[1]);
-            } else if (line.startsWith("print_settings ")) {
-                print_settings = Boolean.parseBoolean(line.split("print_settings ")[1]);
+//            } else if (line.startsWith("debug_disabled ")) {
+//                debug_disabled = Boolean.parseBoolean(line.split("debug_disabled ")[1]);
+//            } else if (line.startsWith("print_settings ")) {
+//                print_settings = Boolean.parseBoolean(line.split("print_settings ")[1]);
             }
         }
-        if (print_settings) {
-            System.out.println(max_gamma);
-            System.out.println(min_gamma);
-            System.out.println(disabled);
-            System.out.println(debug_disabled);
-            System.out.println(print_settings);
-        }
+//        if (print_settings) {
+//            System.out.println(max_gamma);
+//            System.out.println(min_gamma);
+//            System.out.println(disabled);
+//            System.out.println(debug_disabled);
+//            System.out.println(print_settings);
+//        }
 
     }
 

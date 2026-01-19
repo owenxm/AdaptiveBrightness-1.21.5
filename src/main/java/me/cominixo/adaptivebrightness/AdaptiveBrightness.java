@@ -5,7 +5,7 @@ import net.fabricmc.api.ClientModInitializer;
 
 import java.io.IOException;
 
-public class AdaptiveBrightness implements ClientModInitializer {
+public class                                            AdaptiveBrightness implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         try {
